@@ -1,11 +1,6 @@
 # structural-time-integrators
 
-An explicit two-node Petrov–Galerkin time finite element integrator for structural dynamics with physical damping. 
-The scheme advances the second-order equation of motion `M a + Z v + K u = R(t)` one step at a time using a single-step predictor–corrector form
-that is explicit with respect to the stiffness matrix — the only linear solves involve the (typically small) damping operator. 
-In the undamped limit it reduces to velocity-Verlet.
-
-Developed by Jae Young Lee, SunLab, Ajou University.
+Developed by Jae Young Lee, Department of Mechanical Enginnering, Ajou University.
 
 ## Integrators
 
