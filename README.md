@@ -18,9 +18,9 @@ op             = integrator_PG2e_setup(M, Z, DT);	% once, before the loop
 
 `integrator_PG2e_setup` prefactorizes the damping operators once and returns an operator struct `op`.
 `integrator_PG2e` then advances one step per call. No matrix is formed or factorized inside the loop. 
-The internal force is supplied as a handle `F_int(U, V)`.
+The internal force is supplied as a handle `F_int(U,V)`.
 
-A minimal driver for a linear 2-DOF system in free vibration:
+An example script for a linear 2-DOF system in free vibration:
 
 ```matlab
 addpath('integrators/PG2e');
