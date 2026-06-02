@@ -23,14 +23,12 @@ The internal force is supplied as a handle `F_int(U,V)`.
 An example script for a linear 2-DOF system in free vibration:
 
 ```matlab
-addpath('integrators/PG2e');
-
-% --- Structural system:  M a + Z v + K u = R(t)  (lumped/diagonal M recommended) ---
+% --- Structural system:  M a + Z v + K u = R(t) ---
 M = [2 0; 0 1];  K = [6 -2; -2 4];  Z = [0.2 0; 0 0.1];
 
 DT = 1e-3;
 
-% --- Build reusable operators once (prefactorization) ---
+% --- Build reusable operators once (pre-factorization) ---
 op    = integrator_PG2e_setup(M, Z, DT);
 
 % --- Internal force handle:  F_int(U,V) = K*U  for a linear system ---
@@ -39,7 +37,7 @@ F_int = @(U,V) K*U;
 % --- Initial conditions ---
 U = [0; 0];  V = [1; 0];
 
-% --- External load R(t)  (here: free vibration, R = 0) ---
+% --- External load R(t) (free vibration, R = 0) ---
 Rfun = @(t) [0; 0];
 
 % --- Time integration loop (the integrator advances one step per call) ---
