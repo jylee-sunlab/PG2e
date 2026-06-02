@@ -13,7 +13,6 @@ function op = integrator_PG2e_setup(M, Z, DT)
 %            Msolve  function handle applying M^{-1}
 %            zeta    mass-normalized damping  M^{-1} Z
 %            dP, dQ  factorizations of p = 3I + DT*zeta and q = 2I + DT*zeta
-%          Pass OP to INTEGRATOR_PG2E.
 
 if nargin < 3 || isempty(DT)
     error('integrator_PG2e_setup:DT', 'A scalar time step DT is required.');
@@ -43,14 +42,14 @@ elseif isdiag(M)                        % diagonal mass matrix
 else                                    % consistent (non-diagonal) mass matrix
     dM = decomposition(M, 'chol');      % SPD mass matrix: factorize once
     op.Msolve = @(x) dM \ x;
-    zeta = dM \ Z;                      % NOTE: dense if M and Z are non-diagonal
+    zeta = dM \ Z;                      % dense if M and Z are non-diagonal
     warning('integrator_PG2e_setup:consistentMass', ...
         ['Consistent mass matrix detected: M^{-1}Z may be dense. ', ...
          'Lumped (diagonal) mass is recommended for large models.']);
 end
 op.zeta = zeta;
 
-% --- damping operators p, q: factorize ONCE, reuse every step ---
+% --- damping operators p, q: factorize once, reuse every step ---
 I = speye(N);
 op.dP = decomposition(3*I + DT*zeta);   % p = 3I + DT*zeta
 op.dQ = decomposition(2*I + DT*zeta);   % q = 2I + DT*zeta
