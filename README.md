@@ -1,11 +1,11 @@
 # structural-time-integrators
 
-Developed by Jae Young Lee, Department of Mechanical Enginnering, Ajou University.
+Developed by Jae Young Lee, Department of Mechanical Engineering, Ajou University.
 
 ## Integrators
 
 - **PG2e** — two-node explicit Petrov–Galerkin time integrator:
-  - `integrators/PG2e/integrator_PG2e_setup.m` — builds the reusable operator struct once (prefactorizes the damping operators).
+  - `integrators/PG2e/integrator_PG2e_setup.m` — builds the reusable operator once (prefactorization).
   - `integrators/PG2e/integrator_PG2e.m` — advances the solution one step, using the precomputed operators.
 
 ## Usage
@@ -13,8 +13,8 @@ Developed by Jae Young Lee, Department of Mechanical Enginnering, Ajou Universit
 The API is a two-call **setup → step** pattern (see the files for full docs):
 
 ```matlab
-op             = integrator_PG2e_setup(M, Z, DT)             % once, before the loop
-[U_Tp1, V_Tp1] = integrator_PG2e(op, F_int, U_T, V_T, R_T, R_Tp1)   % each step
+op             = integrator_PG2e_setup(M, Z, DT);	% once, before the loop
+[U_Tp1, V_Tp1] = integrator_PG2e(op, F_int, U_T, V_T, R_T, R_Tp1);	% each step
 ```
 
 `integrator_PG2e_setup` prefactorizes the damping operators once and returns an operator
@@ -54,16 +54,10 @@ disp(U);   % displacement at final time
 disp(V);   % velocity at final time
 ```
 
-For an undamped system, pass `Z = []` (or an all-zeros matrix) to `integrator_PG2e_setup`;
-the formulas reduce to velocity-Verlet with no special case. For nonlinear or
-velocity-dependent internal forces, supply an `F_int` handle that uses both `U` and `V`; the
-right-endpoint force is evaluated with the predicted velocity.
-
 ## Requirements
 
-- MATLAB R2017b or later. The setup routine uses the `decomposition` object (introduced in
-  R2017b) to prefactorize the damping operators. No additional toolboxes required — the code
-  uses only base MATLAB (sparse matrix operations, the backslash solver, and function handles).
+- MATLAB R2017b or later. The setup routine uses the `decomposition` object (introduced in R2017b) to prefactorize the damping operators.
+- No additional toolboxes required — the code   uses only base MATLAB (sparse matrix operations, the backslash solver, and function handles).
 
 ## Citation
 
