@@ -36,10 +36,10 @@ M = [2 0; 0 1];  K = [6 -2; -2 4];  Z = [0.2 0; 0 0.1];
 
 DT = 1e-3;
 
-% --- Build reusable operators once (prefactorization; requires R2017b+ for decomposition) ---
+% --- Build reusable operators once (prefactorization) ---
 op    = integrator_PG2e_setup(M, Z, DT);
 
-% --- Internal (elastic) force handle:  F_int(U,V) = K*U  for a linear system (K captured) ---
+% --- Internal force handle:  F_int(U,V) = K*U  for a linear system ---
 F_int = @(U,V) K*U;
 
 % --- Initial conditions ---
@@ -76,19 +76,6 @@ If you use this code, please cite:
 
 > J. Y. Lee, "An explicit Petrov–Galerkin time finite element integrator for structural dynamics with physical damping,"
 > *Computers & Structures*, submitted.
-
-```bibtex
-% TODO: update with final publication details (volume, pages, year, doi) once available.
-@article{Lee2026,
-  author  = {Lee, Jae Young},
-  title   = {An explicit Petrov--Galerkin time finite element integrator for structural dynamics with physical damping},
-  journal = {Computers \& Structures},
-  year    = {},
-  volume  = {},
-  pages   = {},
-  doi     = {}
-}
-```
 
 ## License
 
