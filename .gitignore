@@ -1,0 +1,12 @@
+# MATLAB
+*.asv
+*.m~
+*.mex*
+slprj/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files (keep small intentional reference data with: git add -f path/to/file.mat)
+*.mat
