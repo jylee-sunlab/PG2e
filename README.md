@@ -1,12 +1,11 @@
-# structural-time-integrators
+# Two-node explicit Petrov–Galerkin time integrator
 
 Developed by Jae Young Lee, Department of Mechanical Engineering, Ajou University.
 
 ## Integrators
 
-- **PG2e** — two-node explicit Petrov–Galerkin time integrator:
-  - `integrators/PG2e/integrator_PG2e_setup.m` — builds the reusable operator once (prefactorization).
-  - `integrators/PG2e/integrator_PG2e.m` — advances the solution one step, using the precomputed operators.
+  - `integrator_PG2e_setup.m` — builds the reusable operator once (prefactorization).
+  - `integrator_PG2e.m` — advances the solution one step, using the precomputed operators.
 
 ## Usage
 
