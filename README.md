@@ -63,7 +63,7 @@ disp(V);   % velocity at final time
 
 If you use this code, please cite:
 
-> J. Y. Lee, "An explicit Petrov–Galerkin time finite element integrator for structural dynamics with physical damping,"
+> J. Y. Lee, An explicit Petrov–Galerkin time finite element integrator for structural dynamics with physical damping,
 > *Computers & Structures*, submitted.
 
 ## License
