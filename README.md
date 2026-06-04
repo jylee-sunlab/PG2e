@@ -6,6 +6,7 @@ Developed by Jae Young Lee, Department of Mechanical Engineering, Ajou Universit
 
   - `integrator_PG2e_setup.m` — builds the reusable operator once (prefactorization).
   - `integrator_PG2e.m` — advances the solution one step, using the precomputed operators.
+  - `example_2DOF.m` — a runnable example (linear 2-DOF system in free vibration).
 
 ## Usage
 
@@ -20,36 +21,8 @@ op             = integrator_PG2e_setup(M, Z, DT);	% once, before the loop
 `integrator_PG2e` then advances one step per call. No matrix is formed or factorized inside the loop. 
 The internal force is supplied as a handle `F_int(U,V)`.
 
-An example script for a linear 2-DOF system in free vibration:
-
-```matlab
-% --- Structural system:  M a + Z v + K u = R(t) ---
-M = [2 0; 0 1];  K = [6 -2; -2 4];  Z = [0.2 0; 0 0.1];
-
-DT = 1e-3;
-
-% --- Build reusable operators once (pre-factorization) ---
-op    = integrator_PG2e_setup(M, Z, DT);
-
-% --- Internal force handle:  F_int(U,V) = K*U  for a linear system ---
-F_int = @(U,V) K*U;
-
-% --- Initial conditions ---
-U = [0; 0];  V = [1; 0];
-
-% --- External load R(t) (free vibration, R = 0) ---
-Rfun = @(t) [0; 0];
-
-% --- Time integration loop (the integrator advances one step per call) ---
-T = 5;  nT = round(T/DT);  t = 0;
-for n = 1:nT
-    [U, V] = integrator_PG2e(op, F_int, U, V, Rfun(t), Rfun(t+DT));
-    t = t + DT;
-end
-
-disp(U);   % displacement at final time
-disp(V);   % velocity at final time
-```
+A complete runnable example (linear 2-DOF free vibration) is in `example_2DOF.m`. 
+Run it from the repository folder.
 
 ## Requirements
 
