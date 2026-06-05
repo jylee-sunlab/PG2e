@@ -21,7 +21,12 @@ op             = integrator_PG2e_setup(M, Z, DT);	% once, before the loop
 `integrator_PG2e` then advances one step per call. No matrix is formed or factorized inside the loop. 
 The internal force is supplied as a handle `F_int(U,V)`.
 
+<<<<<<< HEAD
 An example (linear 2-DOF free vibration) is in `example_2DOF.m`.
+=======
+A complete runnable example (linear 2-DOF free vibration) is in `example_2DOF.m`. 
+Run it from the repository folder.
+>>>>>>> 535082fecae7c80f07a63702483f88c1b284ccee
 
 ## Requirements
 
