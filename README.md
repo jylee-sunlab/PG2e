@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/1257065389.svg)](https://doi.org/10.5281/zenodo.20757591)
 # A two-node explicit Petrov–Galerkin time integrator
 
 Developed by Jae Young Lee, Department of Mechanical Engineering, Ajou University.
