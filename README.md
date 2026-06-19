@@ -1,4 +1,4 @@
-# Two-node explicit Petrov–Galerkin time integrator
+# A two-node explicit Petrov–Galerkin time integrator
 
 Developed by Jae Young Lee, Department of Mechanical Engineering, Ajou University.
 
