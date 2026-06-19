@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "PG2e: A two-node explicit Petrov-Galerkin time integrator"
+authors:
+  - family-names: "Lee"
+    given-names: "Jae Young"
+    orcid: "https://orcid.org/0000-0002-6438-2699"
+license: "MIT"
