@@ -34,8 +34,9 @@ An example (linear 2-DOF free vibration) is in `example_2DOF.m`.
 
 If you use this code, please cite:
 
-> J. Y. Lee, An explicit Petrov–Galerkin time finite element integrator for structural dynamics with physical damping,
-> *Computers & Structures*, submitted.
+> J. Y. Lee, “An explicit Petrov–Galerkin time finite element integrator for structural dynamics with physical damping,”
+> *Computers & Structures* (2026).
+> https://doi.org/10.1016/j.compstruc.2026.108369
 
 ## License
 
